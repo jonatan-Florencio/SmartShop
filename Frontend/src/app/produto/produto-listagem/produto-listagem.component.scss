@@ -1,0 +1,106 @@
+.card-header {
+  background: var(--cinzaClaro);
+}
+
+label {
+  margin-bottom: 0.5px;
+}
+
+.btn-limpar, .btn-pesquisar {
+  height: 37px;
+}
+
+.btn-limpar, .btn-excluir {
+  background: var(--cinzaClaro);
+  width: 100px;
+
+}
+
+.btn-limpar:hover, .btn-excluir:hover {
+  filter: brightness(0.9);
+  transition: .7s;
+}
+
+.btn-pesquisar, .btn-editar {
+  background: var(--verdePrincipal);
+  width: 100px;
+}
+
+.btn-pesquisar:hover, .btn-editar:hover {
+  filter: brightness(1.1);
+  transition: .7s;
+}
+
+table {
+  width: 94%;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  outline: 3px solid var(--verdePrincipal);
+  outline-offset: 0;
+}
+
+thead {
+  text-align: center;
+  background-color: var(--verdePrincipal);
+  color: #fff;
+  height: 40px;
+}
+
+th, td {
+  border: 1px solid var(--verdePrincipal);
+  padding: 3px 4px;
+}
+
+tr td:nth-child(1) {
+  border-left: none;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--offWhite);
+}
+
+.estoque, .preco {
+  text-align: center;
+}
+
+.acoes {
+  padding: 3px 0;
+}
+
+.paginacao {
+  margin-top: 10px;
+  margin-left: 40px;
+  display: flex;
+  gap: 4.5px;
+}
+
+#qtdeItens {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.btn-anterior, .btn-proximo {
+  border: none;
+  width: 20px;
+  height: auto;
+  padding: 0;
+  border: none;
+  display: flex;
+  background: transparent;
+}
+
+.btn-anterior {
+  align-items: center;
+}
+
+.btn-proximo {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.img-anterior, .img-proximo {
+  width: 70%;
+  height: auto;
+  background: transparent;
+}

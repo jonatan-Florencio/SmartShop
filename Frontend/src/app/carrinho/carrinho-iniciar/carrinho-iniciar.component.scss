@@ -1,0 +1,23 @@
+a {
+  text-decoration: none;
+}
+
+.iniciar {
+  width: 600px;
+  height: 200px;
+  background-color: var(--verdePrincipal);
+  border: thick double var(--offWhite);
+  font-size: 64px;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  color: var(--offWhite);
+
+  align-content: center;
+}
+
+.cadastro {
+  font-size: 28px;
+  font-family: "Montserrat", sans-serif;
+  color: var(--verdePrincipal);
+  font-weight: 600;
+}

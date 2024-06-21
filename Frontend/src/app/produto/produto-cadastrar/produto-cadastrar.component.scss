@@ -1,0 +1,23 @@
+.card-header {
+  background: var(--cinzaClaro);
+}
+
+.btnvoltar {
+  background: var(--cinzaClaro);
+  width: 100px;
+}
+
+.btnvoltar:hover {
+  filter: brightness(0.9);
+  transition: .7s;
+}
+
+.btnsalvar {
+  background: var(--verdePrincipal);
+  width: 100px;
+}
+
+.btnsalvar:hover {
+  filter: brightness(1.1);
+  transition: .7s;
+}

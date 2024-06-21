@@ -1,0 +1,17 @@
+.container {
+  .card {
+    .card-header {
+      background-color: var(--verdePrincipal);
+      color: var(--offWhite);
+    }
+
+    .btn-primary {
+      background-color: var(--verdePrincipal);
+      border-color: var(--verdePrincipal);
+    }
+
+    .form-control {
+      border: 1px solid var(--verdePrincipal);
+    }
+  }
+}

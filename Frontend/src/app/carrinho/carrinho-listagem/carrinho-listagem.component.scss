@@ -1,0 +1,141 @@
+$verde-principal: #236952;
+$amarelo: #FFC107;
+$cinzaClaro: #A9A9A9; /* Darker gray */
+$background: #f8f9fa;
+$bordas: #ced4da;
+$sombra: rgba(0, 0, 0, 0.1);
+$offWhite: #F8F9FA;
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.usuarioInput {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--verdePrincipal);
+}
+
+.closeIcon {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bi-x-circle {
+  color: rgb(112, 112, 112);
+}
+
+.btn {
+  width: 104px;
+  height: 34px;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+  filter: brightness(1.1);
+  transition: 0.7s;
+}
+
+.btn-pesquisar {
+  background-color: $verde-principal;
+  color: black;
+  font-weight: bold; /* Make text bold */
+}
+
+.btn-limpar {
+  background-color: $cinzaClaro;
+  color: black;
+  font-weight: bold;
+}
+
+.btn-cadastrar {
+  background-color: $amarelo;
+  color: black;
+  font-weight: bold;
+}
+
+.btn-acao {
+  width: 104px;
+  height: 34px;
+}
+
+.btn-editar {
+  background-color: $amarelo;
+  color: black;
+  filter: brightness(0.9);
+  transition: 0.7s;
+}
+
+.btn-excluir {
+  background-color: $cinzaClaro;
+  color: black;
+  filter: brightness(0.9);
+  transition: 0.7s;
+}
+
+table {
+  width: 94%;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  outline: 3px solid var(--verdePrincipal);
+  outline-offset: 0;
+}
+
+thead {
+  text-align: center;
+  background-color: var(--verdePrincipal);
+  color: #fff;
+  height: 40px;
+}
+
+th, td {
+  border: 1px solid var(--verdePrincipal);
+  padding: 3px 4px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--offWhite);
+}
+
+.paginacao {
+  margin-top: 20px;
+  margin-left: 160px;
+  display: flex;
+  gap: 4.5px;
+}
+
+#qtdeItens {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.btn-anterior, .btn-proximo {
+  border: none;
+  width: 30px;
+  height: auto;
+  padding: 0;
+  display: flex;
+  background: transparent;
+}
+
+.btn-anterior {
+  align-items: center;
+}
+
+.btn-proximo {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.img-anterior, .img-proximo {
+  width: 70%;
+  height: auto;
+  background: transparent;
+}

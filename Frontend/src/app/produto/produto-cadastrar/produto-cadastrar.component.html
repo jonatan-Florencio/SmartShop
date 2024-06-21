@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-12">
+      <div class="card shadow">
+        <div class="card-header h4 .texto-ênfase-secundário">{{idProduto ? "Editar" : "Cadastrar" }} produto</div>
+
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome:</label>
+              <input type="text" class="form-control border border-secondary-subtle border-1" id="nome" name="nome" [(ngModel)]="produto.nome">
+            </div>
+
+            <div class="row mb-3">
+              <div class="form-group col-md-4">
+                <label for="marca" class="form-label">Marca:</label>
+                <select class="form-select border border-secondary-subtle border-1" aria-label="Selecione a marca" id="marca" name="marca" [(ngModel)]="produto.marca" [compareWith]="compareById">
+                  @for(marca of marcas; track marca.id) {
+                    <option [ngValue]="marca">{{ marca.nome }} </option>
+                  }
+                </select>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="categoria" class="form-label">Categoria:</label>
+                <select class="form-select border border-secondary-subtle border-1" aria-label="Selecione categoria" id="categoria" name="categoria" [(ngModel)]="produto.categoria" [compareWith]="compareById">
+                  @for(categoria of categorias; track categoria.id) {
+                    <option [ngValue]="categoria">{{ categoria.nome }}</option>
+                  }
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="form-group col-md-4">
+                <label for="codigoDeBarras" class="form-label">Codigo de barras:</label>
+                <input type="text" class="form-control border border-secondary-subtle border-1" id="codigoDeBarras" name="codigoDeBarras" [(ngModel)]="produto.codigoDeBarras">
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="estoque" class="form-label">Estoque:</label>
+                <input type="text" class="form-control border border-secondary-subtle border-1" id="estoque" name="estoque" [(ngModel)]="produto.estoque">
+              </div>              
+            </div>
+
+            <div class="form-group d-flex justify-content-start column-gap-2">
+              <button type="button" class="btn btnvoltar" (click)="voltar()" >Voltar</button>
+              <button type="submit" class="btn btnsalvar text-white" (click)="salvar()">Salvar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

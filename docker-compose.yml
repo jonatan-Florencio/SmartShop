@@ -1,0 +1,45 @@
+version: '3.8'
+ 
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: dbsmartshop
+    ports:
+      - "3007:3006"
+    restart: always
+    environment: # Corrigido de "enviroment"
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dbsmartshop # Corrigido de "MYSQL_ROOT_DATABASE"
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    command: --default-authentication-plugin=mysql_native_password # Corrigido de "comand" e "defalt"
+    volumes:
+      - ./src/main/resources/scripts:/docker-entrypoint-initdb.d
+    networks:
+      - network-dbsmartshop
+ 
+  java_app:
+    build:
+      context: ./back-end
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - network-dbsmartshop
+ 
+  angular_app:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    depends_on:
+      - java_app
+    networks:
+      - network-dbsmartshop
+ 
+networks:
+  network-dbsmartshop:
+

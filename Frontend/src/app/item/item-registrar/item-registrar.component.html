@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="card border-light mt-3">
+    <div class="card-header h4 .texto-ênfase-secundário text-center">Registro de produtos</div>
+
+    <div class="card-body">
+      <form>
+        <div class="row mb-2 mt-1">
+          <div class="form-group d-flex align-items-center column-gap-3 ms-5">
+            <label for="codigoDeBarras" class="form-label mb-1">Código de barras</label>
+            <div class="input-wrapper">
+              <input type="text" class="form-control border border-secondary-subtle border-1 cBInput" placeholder="Digite o código de barras" name="codigoDeBarras" [(ngModel)]="codigoDeBarras">
+              <i class="ph ph-x-circle" *ngIf="codigoDeBarras" (click)="limpar()"></i>
+            </div>
+
+            <label class="form-label mb-1" for="quantidade">Quantidade</label>
+            <input type="number" class="form-control border border-secondary-subtle border-1 qtdInput" name="quantidade" id="quantidade" [(ngModel)]="item.quantidade">
+
+            <button type="button" class="btn btn-salvar btn-sm" (click)="pesquisarProduto()">Confirmar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- <table>
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Preço</th>
+          <th>Qtde</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(item of itens; track item) {
+          <tr>
+            <td>{{ item.produto.nome }}</td>
+            <td>{{ item.preco }}</td>
+            <td>{{ item.quantidade }}</td>
+            <td>
+                <button class="btn btn-close">Editar</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table> -->
+  </div>
+</div>
+

@@ -1,0 +1,57 @@
+FERNANDA DIAS
+PIETRO FERRAZZO DANIEL
+
+REQUISITOS FUNCIONAIS E REGRAS DE NEGÓCIO: SMARTSHOP
+
+REGRAS DE NEGÓCIO (RN):
+
+RN01: O usuário deverá informar nome completo, e-mail, data de nascimento e 
+telefone para realizar seu cadastro.
+RN02: O sistema deverá verificar se o CPF já consta em outro cadastro e garantir 
+que o CPF e e-mail sejam únicos no cadastro de clientes e administradores.
+RN03: Para realizar o cadastro de um administrador, além dos campos que o 
+cliente preenche, deverá ser preenchido um campo de senha.
+RN04: O usuário poderá realizar a compra informando ou não o CPF.
+RN05: Limite de caracteres para o nome: mínimo 3 e máximo 255 (nome 
+completo).
+RN06: Data de nascimento não é obrigatória.
+RN07: A senha deve ter no mínimo 6 caracteres, incluindo 1 maiúscula e 1 
+caractere especial (pode haver números ou não).
+RN08: O sistema deve verificar se o código de barras já está cadastrado ao 
+registrar um produto.
+RN09: O nome do produto deve ter no mínimo 10 caracteres.
+RN10: O sistema deve validar o formato do CPF para garantir sua validade.
+RN11: O sistema deve permitir apenas caracteres válidos e comprimentos 
+definidos nos campos dos formulários.
+RN12: O sistema deve exigir autenticação para acessar ou editar informações 
+pessoais do usuário.
+
+REQUISITOS FUNCIONAIS (RF):
+
+RF01: O sistema deve permitir ao cliente realizar cadastro.
+RF02: O sistema deve permitir ao cliente realizar compras.
+RF03: O sistema deve permitir ao administrador cadastrar e listar clientes.
+RF04: O sistema deve permitir ao administrador cadastrar e listar 
+administradores.
+RF05: O sistema deve permitir ao administrador cadastrar e listar produtos.
+RF06: O sistema deve permitir ao administrador cadastrar e listar categorias de 
+produtos.
+RF07: O sistema deve permitir ao administrador cadastrar e listar formas de 
+pagamento.
+RF08: O sistema deve permitir ao administrador visualizar a lista de carrinhos de 
+compras.
+RF09: O sistema deve exibir um botão "iniciar compra" que, ao ser clicado pelo 
+usuário, inicia o carrinho.
+RF10: Após iniciar a compra, o sistema deve exibir um pop-up perguntando: 
+"Deseja informar o CPF?".
+RF11: Caso o usuário clique em "sim" e ainda não tenha cadastro, deve haver 
+um botão para redirecioná-lo à tela de cadastro.
+RF12: O sistema deve atualizar o total do carrinho ao incluir um produto na 
+compra.
+RF13: O sistema deve permitir que o usuário realize o pagamento através de 
+cartão de crédito, cartão de débito e Pix.
+RF14: O sistema deve permitir ao administrador excluir ou atualizar cadastros de 
+clientes, administradores, produtos, categorias e formas de pagamento.
+RF15: O sistema deve enviar uma confirmação de cadastro por e-mail ao usuário 
+após o registro.
+RF16: O sistema deve permitir ao administrador cadastrar e listar endereços.

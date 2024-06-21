@@ -1,0 +1,130 @@
+.input-wrapper {
+  position: relative;
+  width: 35%;
+}
+
+.input-wrapper i {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.categoriaInput {
+  padding-right: 25px;
+}
+
+.categoriaInput:focus {
+  border: 1px solid var(--verdePrincipal);
+}
+
+.btn-pesquisar, .btn-salvar, .btn-editar, .btn-salvarAlteracoes, .btn-cancelar, .btn-excluir {
+  width: 80px;
+  height: 34px;
+}
+
+.btn-editar, .btn-salvarAlteracoes, .btn-cancelar, .btn-excluir {
+  padding: 2px 3px;
+}
+
+.btn-pesquisar {
+    background: var(--verdePrincipal);
+}
+
+.btn-pesquisar:hover {
+  filter: brightness(1.1);
+  transition: .7s;
+}
+
+.btn-salvar, .btn-editar, .btn-salvarAlteracoes {
+  background: var(--amarelo);
+}
+
+.btn-salvar:hover, .btn-editar:hover, .btn-salvarAlteracoes:hover {
+  filter: brightness(0.9);
+  transition: .7s;
+}
+
+.btn-cancelar, .btn-excluir {
+  background: var(--cinzaClaro);
+}
+
+.btn-cancelar:hover, .btn-excluir:hover {
+  filter: brightness(0.9);
+  transition: .7s;
+}
+
+table {
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  outline: 3px solid var(--verdePrincipal);
+  outline-offset: 0;
+}
+
+thead {
+  text-align: center;
+  background-color: var(--verdePrincipal);
+  color: #fff;
+  height: 40px;
+}
+
+
+th, td {
+  border: 1px solid var(--verdePrincipal);
+  padding: 3px 4px;
+}
+
+tr td:nth-child(1) {
+  border-left: none;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--offWhite);
+}
+
+.inputEditar {
+  max-width: 220px;
+  max-height: 34px;
+}
+
+.paginacao {
+  margin-top: 20px;
+  margin-left: 225px;
+  display: flex;
+  gap: 4.5px;
+}
+
+#qtdeItens {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.btn-anterior, .btn-proximo {
+  border: none;
+  width: 20px;
+  height: auto;
+  padding: 0;
+  border: none;
+  display: flex;
+  background: transparent;
+}
+
+.btn-anterior {
+  align-items: center;
+}
+
+.btn-proximo {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.img-anterior, .img-proximo {
+  width: 70%;
+  height: auto;
+  background: transparent;
+}

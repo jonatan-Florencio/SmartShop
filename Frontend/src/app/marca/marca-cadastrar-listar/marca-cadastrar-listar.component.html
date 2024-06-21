@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="card border-light mt-3">
+    <div class="card-header h4 .texto-ênfase-secundário text-center">Marcas</div>
+
+    <div class="card-body">
+      <form>
+        <div class="row mb-2 mt-1">
+          <div class="form-group d-flex align-items-center column-gap-3 ms-5">
+            <label for="nome" class="form-label">Nome:</label>
+            <div class="input-wrapper">
+              <input type="text" class="form-control border border-secondary-subtle border-1 categoriaInput" name="nome" [(ngModel)]="filtro.nome">
+              <i class="ph ph-x-circle" *ngIf="filtro.nome" (click)="limpar()"></i>
+            </div>
+            <button type="submit" class="btn btn-pesquisar text-white btn-sm" (click)="pesquisarClick()">Pesquisar</button>
+            <button type="button" class="btn btn-salvar btn-sm" (click)="salvar()">Salvar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <br><br>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let marca of marcas; trackBy: trackByMarca">
+          <td *ngIf="!marca.editMode">{{ marca.nome }}</td>
+          <td *ngIf="marca.editMode">
+            <input type="text" [(ngModel)]="marca.nome" class="form-control inputEditar">
+          </td>
+          <td>
+            <div class="row-1 d-flex justify-content-center column-gap-2 acoes">
+              <button *ngIf="!marca.editMode" class="btn btn-editar" (click)="trocarEditMode(marca)">Editar</button>
+              <button *ngIf="marca.editMode" class="btn btn-salvarAlteracoes" (click)="atualizar(marca)">Salvar</button>
+              <button *ngIf="marca.editMode" class="btn btn-cancelar" (click)="cancelarEdicao(marca)">Cancelar</button>
+              <button *ngIf="!marca.editMode" class="btn btn-excluir" (click)="excluir(marca)">Excluir</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="paginacao">
+  <label for="qtdeItens">Itens por página</label>
+  <select name="qtdeItens" id="qtdeItens" [(ngModel)]="filtro.limite" (change)="atualizarPaginacao()">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="20">20</option>
+  </select>
+  <button class="btn-anterior" *ngIf="filtro.pagina > 1" (click)="consultarPaginaAnterior()"><img class="img-anterior" src="../../../assets/previous-svgrepo-com.svg" alt="anterior"></button>
+  <span>{{ registroInicial }} - {{ registroFinal }} de {{ qtdeRegistros }}</span>
+  <button class="btn-proximo" *ngIf="filtro.pagina !== totalPaginas" (click)="consultarProximaPagina()"><img class="img-proximo" src="../../../assets/next-svgrepo-com.svg" alt="proximo"></button>
+</div>

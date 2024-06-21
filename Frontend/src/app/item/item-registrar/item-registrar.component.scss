@@ -1,0 +1,33 @@
+.input-wrapper {
+  position: relative;
+  width: 35%;
+}
+
+.input-wrapper i {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.cBInput {
+  padding-right: 25px;
+}
+
+.qtdInput {
+  width: 10%;
+}
+
+.btn-salvar {
+  width: 100px;
+  height: 34px;
+  background: var(--verdePrincipal);
+}
+
+.btn-salvar:hover {
+  filter: brightness(1.1);
+  transition: .7s;
+}

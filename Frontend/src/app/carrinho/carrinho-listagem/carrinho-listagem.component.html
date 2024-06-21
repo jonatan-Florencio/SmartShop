@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-12">
+      <div class="card shadow">
+        <div class="card-header h4 .texto-ênfase-secundário">Filtros</div>
+
+        <div class="card-body">
+          <form>
+            <div class="row mb-3">
+              <div class="form-group col-md-4">
+                <label for="dataInicial">Data Inicial:</label>
+                <input type="date" class="form-control border border-secondary-subtle border-1" id="dataInicial" name="dataInicial" [(ngModel)]="filtro.dataInicial">
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="dataFinal">Data Final:</label>
+                <input type="date" class="form-control border border-secondary-subtle border-1" id="dataFinal" name="dataFinal" [(ngModel)]="filtro.dataFinal">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <!-- <div class="form-group col-md-4">
+                <label for="formaDePagamento" class="form-label">Forma de pagamento:</label>
+                <select class="form-select border border-secondary-subtle border-1" aria-label="Selecione a forma de pagamento" id="categoria" name="formaDePagamento" [(ngModel)]="filtro.formaDePagamento">
+                  @for(formaDePagamento of formasDePagamento; track formaDePagamento.id) {
+                    <option value="{{ formaDePagamento.nome }}">{{ formaDePagamento.nome }}</option>
+                  }
+                </select>
+              </div> -->
+
+              <div class="form-group col-md-4">
+                <label for="cliente" class="form-label">Cliente:</label>
+                <input type="text" class="form-control border border-secondary-subtle border-1" name="cliente" [(ngModel)]="filtro.cliente">
+              </div>
+            </div>
+
+            <div class="form-group d-flex justify-content-start align-items-end column-gap-2 col-md-4">
+              <button type="button" class="btn btn-limpar btn-sm" (click)="limpar()">Limpar</button>
+              <button type="submit" class="btn btn-pesquisar btn-sm" (click)="pesquisarClick()">Pesquisar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Total</th>
+        <th>Cliente</th>
+        <th>Forma de pagamento</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for(carrinho of carrinhos; track carrinho) {
+            <tr>
+                <td>{{ carrinho.data }}</td>
+                <td>{{ carrinho.total }}</td>
+                <td>{{ carrinho.cliente }}</td>
+                <!-- <td>{{ carrinho.formaDePagamento}}</td> -->
+                <td>
+                  <div class="row-1 d-flex justify-content-center column-gap-2 acoes">
+                    <button class="btn btn-editar" (click)="editar(carrinho.id)">Editar</button>
+                    <button class="btn btn-excluir" (click)="excluir(carrinho)">Excluir</button>
+                  </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+  </table>
+
+<div class="paginacao">
+  <label for="qtdeItens">Itens por página</label>
+  <select name="qtdeItens" id="qtdeItens" [(ngModel)]="filtro.limite" (change)="atualizarPaginacao()">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="20">20</option>
+  </select>
+  <button class="btn-anterior" *ngIf="filtro.pagina > 1" (click)="consultarPaginaAnterior()"><img class="img-anterior" src="../../../assets/previous-svgrepo-com.svg" alt="anterior"></button>
+  <span>{{ registroInicial }} - {{ registroFinal }} de {{ qtdeRegistros }}</span>
+  <button class="btn-proximo" *ngIf="filtro.pagina !== totalPaginas" (click)="consultarProximaPagina()"><img class="img-proximo" src="../../../assets/next-svgrepo-com.svg" alt="proximo"></button>
+</div>

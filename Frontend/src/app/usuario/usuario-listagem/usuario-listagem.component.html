@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="card border-light mt-3">
+    <div class="card-header h4 .texto-ênfase-secundário text-center">Usuários</div>
+    <div class="card-body">
+      <form>
+        <div class="row mb-2 mt-1">
+          <div class="col-md-6 form-group d-flex flex-column align-items-start">
+            <label for="nome" class="form-label">Nome:</label>
+            <div class="inputWrapper">
+              <input type="text" class="form-control usuarioInput border border-secondary-subtle border-1" name="nome" id="nome" [(ngModel)]="filtro.nome">
+              <div class="closeIcon"><i class="bi bi-x-circle" *ngIf="filtro.nome" (click)="limparFiltro('nome')"></i></div>
+            </div>
+          </div>
+          <div class="col-md-6 form-group d-flex flex-column align-items-start">
+            <label for="cpf" class="form-label">CPF:</label>
+            <div class="inputWrapper">
+              <input type="text" class="form-control usuarioInput border border-secondary-subtle border-1" name="cpf" id="cpf" [(ngModel)]="filtro.cpf">
+              <div class="closeIcon"><i class="bi bi-x-circle" *ngIf="filtro.cpf" (click)="limparFiltro('cpf')"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-6 form-group d-flex flex-column align-items-start">
+            <label for="telefone" class="form-label">Telefone:</label>
+            <div class="inputWrapper">
+              <input type="text" class="form-control usuarioInput border border-secondary-subtle border-1" name="telefone" id="telefone" [(ngModel)]="filtro.telefone">
+              <div class="closeIcon"><i class="bi bi-x-circle" *ngIf="filtro.telefone" (click)="limparFiltro('telefone')"></i></div>
+            </div>
+          </div>
+          <div class="col-md-6 form-group d-flex flex-column align-items-start">
+            <label for="email" class="form-label">Email:</label>
+            <div class="inputWrapper">
+              <input type="email" class="form-control usuarioInput border border-secondary-subtle border-1" name="email" id="email" [(ngModel)]="filtro.email">
+              <div class="closeIcon"><i class="bi bi-x-circle" *ngIf="filtro.email" (click)="limparFiltro('email')"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-6 form-group d-flex flex-column align-items-start">
+            <label for="bloco" class="form-label">Bloco:</label>
+            <select class="form-select border border-secondary-subtle border-1" aria-label="Selecione o bloco" id="bloco" name="bloco" [(ngModel)]="filtro.idBloco">
+              @for(bloco of blocos; track bloco.id) {
+                <option value="{{ bloco.id }}">{{ bloco.bloco }}</option>
+              }
+            </select>
+          </div>
+          <div class="col-md-6 form-group d-flex flex-column align-items-start">
+            <label for="apartamento" class="form-label">Apartamento:</label>
+            <select class="form-select border border-secondary-subtle border-1" aria-label="Selecione a marca" id="marca" name="marca" [(ngModel)]="filtro.idApartamento">
+              @for(apartamento of apartamentos; track apartamento.id) {
+                <option value="{{ apartamento.id }}">{{ apartamento.apartamento }}</option>
+              }
+            </select>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-6 form-group d-flex flex-column align-items-start">
+            <label for="tipoUsuario" class="form-label">Tipo de Usuário:</label>
+            <div class="inputWrapper">
+              <select class="form-control usuarioInput border border-secondary-subtle border-1" name="tipoUsuario" id="tipoUsuario" [(ngModel)]="filtro.tipoUsuario">
+                <option *ngFor="let tipo of tipoUsuario" [value]="tipo">{{ tipo }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 form-group d-flex align-items-center mt-2">
+            <button type="button" class="btn btn-pesquisar text-white btn-sm" (click)="pesquisarClick()">Filtrar</button>
+            <button type="button" class="btn btn-limpar text-white btn-sm ms-2" (click)="limpar()">Limpar</button>
+            <button type="button" class="btn btn-cadastrar text-white btn-sm ms-2" (click)="cadastrar()">Cadastrar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Telefone</th>
+          <th>Email</th>
+          <th>Bloco</th>
+          <th>Apartamento</th>
+          <th>Tipo de Usuário</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios; trackBy: trackByUsuario">
+          <td>{{ usuario.nome }}</td>
+          <td>{{ usuario.cpf }}</td>
+          <td>{{ usuario.telefone }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.bloco.bloco }}</td>
+          <td>{{ usuario.apartamento.apartamento }}</td>
+          <td>{{ usuario.tipoUsuario }}</td>
+          <td>
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-acao btn-editar" (click)="editar(usuario)">Editar</button>
+              <button class="btn btn-acao btn-excluir ms-2" (click)="excluir(usuario)">Excluir</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="paginacao">
+  <label for="qtdeItens">Itens por página</label>
+  <select name="qtdeItens" id="qtdeItens" [(ngModel)]="filtro.limite" (change)="atualizarPaginacao()">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="20">20</option>
+  </select>
+  <button class="btn-anterior" *ngIf="filtro.pagina > 1" (click)="consultarPaginaAnterior()"><img class="img-anterior" src="../../../assets/previous-svgrepo-com.svg" alt="anterior"></button>
+  <span>{{ registroInicial }} - {{ registroFinal }} de {{ qtdeRegistros }}</span>
+  <button class="btn-proximo" *ngIf="filtro.pagina !== totalPaginas" (click)="consultarProximaPagina()"><img class="img-proximo" src="../../../assets/next-svgrepo-com.svg" alt="proximo"></button>
+</div>

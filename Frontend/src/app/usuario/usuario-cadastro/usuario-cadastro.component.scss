@@ -1,0 +1,51 @@
+$verde-principal: #236952;
+$verde-hover: #117568;
+$background: #f8f9fa;
+$bordas: #ced4da;
+$sombra: rgba(0, 0, 0, 0.1);
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $background;
+  border-radius: 8px;
+  box-shadow: 0 0 10px $sombra;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-control {
+  border: 1px solid $bordas;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.btn {
+  background-color: $verde-principal;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: $verde-hover;
+}
+
+.btn-primary,
+.btn-secondary {
+  width: 48%;
+}
