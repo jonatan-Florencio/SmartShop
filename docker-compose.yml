@@ -14,7 +14,7 @@ services:
       MYSQL_PASSWORD: root
     command: --default-authentication-plugin=mysql_native_password # Corrigido de "comand" e "defalt"
     volumes:
-      - ./src/main/resources/scripts:/docker-entrypoint-initdb.d
+      - ./back-end/src/main/resources/scripts:/docker-entrypoint-initdb.d
     networks:
       - network-dbsmartshop
  
