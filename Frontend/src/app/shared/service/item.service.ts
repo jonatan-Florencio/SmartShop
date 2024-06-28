@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ItemService
+export class ItemService {
 
   constructor(private httpClient: HttpClient) { }
 
@@ -19,4 +19,4 @@ export class ItemService
   consultarTodos(idCarrinho: number): Observable<Array<Item>> {
     return this.httpClient.get<Array<Item>>(this.API + '/todos' + idCarrinho);
   }
-
+}

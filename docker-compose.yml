@@ -5,7 +5,7 @@ services:
     image: mysql:8.0
     container_name: dbsmartshop
     ports:
-      - "3007:3006"
+      - "3307:3306"
     restart: always
     environment: # Corrigido de "enviroment"
       MYSQL_ROOT_PASSWORD: root
