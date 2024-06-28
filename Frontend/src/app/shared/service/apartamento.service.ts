@@ -7,7 +7,7 @@ import { Apartamento } from '../model/apartamento';
   providedIn: 'root'
 })
 export class ApartamentoService {
-  private readonly API = 'http://localhost:8080/SmartShop/rest/apartamento';
+  private readonly API = 'http://localhost:8080/rest/apartamento';
 
   constructor(private httpClient: HttpClient) {}
 

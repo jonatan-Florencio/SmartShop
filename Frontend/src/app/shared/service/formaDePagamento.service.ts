@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 
 export class FormaDePagamentoService{
 
-  private readonly API = 'http://localhost:8080/SmartShop/rest/formaPagamento';
+  private readonly API = 'http://localhost:8080/rest/formaPagamento';
 
   constructor(
     private httpClient: HttpClient

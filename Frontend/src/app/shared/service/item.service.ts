@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ItemService {
+export class ItemService
 
   constructor(private httpClient: HttpClient) { }
 
-  private readonly API: string = 'http://localhost:8080/SmartShop/rest/item';
+  private readonly API: string = 'http://localhost:8080/rest/item';
 
   salvar(item: Item) {
     return this.httpClient.post<Item>(this.API, item)
@@ -19,4 +19,4 @@ export class ItemService {
   consultarTodos(idCarrinho: number): Observable<Array<Item>> {
     return this.httpClient.get<Array<Item>>(this.API + '/todos' + idCarrinho);
   }
-}
+

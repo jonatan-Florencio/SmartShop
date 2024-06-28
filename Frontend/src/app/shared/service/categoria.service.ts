@@ -11,7 +11,7 @@ export class CategoriaService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private readonly API: string = 'http://localhost:8080/SmartShop/rest/categoria';
+  private readonly API: string = 'http://localhost:8080/rest/categoria';
 
   salvar(categoria: Categoria) {
     return this.httpClient.post<Categoria>(this.API, categoria)

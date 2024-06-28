@@ -7,7 +7,7 @@ import { Bloco } from '../model/bloco';
   providedIn: 'root'
 })
 export class BlocoService {
-  private readonly API = 'http://localhost:8080/SmartShop/rest/bloco';
+  private readonly API = 'http://localhost:8080/rest/bloco';
 
   constructor(private httpClient: HttpClient) {}
 

@@ -11,7 +11,7 @@ export class ProdutoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private readonly API: string = 'http://localhost:8080/SmartShop/rest/produto';
+  private readonly API: string = 'http://localhost:8080/rest/produto';
 
   salvar(produto: Produto) {
     return this.httpClient.post<Produto>(this.API, produto)

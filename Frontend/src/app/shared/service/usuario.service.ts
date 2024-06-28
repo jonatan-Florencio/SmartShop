@@ -11,7 +11,7 @@ import { Apartamento } from "../model/apartamento";
 })
 export class UsuarioService{
 
-  private readonly API = 'http://localhost:8080/SmartShop/rest/usuario';
+  private readonly API = 'http://localhost:8080/rest/usuario';
 
   constructor(
     private httpClient: HttpClient

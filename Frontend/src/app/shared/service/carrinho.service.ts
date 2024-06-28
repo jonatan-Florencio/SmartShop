@@ -11,7 +11,7 @@ import { Item } from '../model/item';
 export class CarrinhoService {
   constructor(private httpClient: HttpClient) { }
 
-  private readonly API: string = 'http://localhost:8080/SmartShop/rest/carrinho';
+  private readonly API: string = 'http://localhost:8080/rest/carrinho';
 
   salvar(carrinho: Carrinho): Observable<Carrinho> {
     return this.httpClient.post<Carrinho>(this.API, carrinho);

@@ -11,7 +11,7 @@ export class MarcaService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private readonly API: string = 'http://localhost:8080/SmartShop/rest/marca';
+  private readonly API: string = 'http://localhost:8080/rest/marca';
 
   salvar(marca: Marca) {
     return this.httpClient.post<Marca>(this.API, marca)
