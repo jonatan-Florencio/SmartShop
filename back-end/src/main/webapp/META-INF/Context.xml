@@ -10,6 +10,6 @@
 		name="smartshop" auth="Container" type="javax.sql.DataSource"
 		maxTotal="10" maxIdle="10" maxWaitMillis="10000"
 		username="smartshop" password="root" driverClassName="com.mysql.cj.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/dbsmartshop"
+		url="jdbc:mysql://mysql:3306/dbsmartshop"
 	/>
 </Context>
