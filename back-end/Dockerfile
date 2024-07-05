@@ -1,28 +1,33 @@
-# Estágio 1: Construir a aplicação com Maven
+# Stage 1: Build the application with Maven
 FROM maven:3.8.4-openjdk-11 AS build
 WORKDIR /app
 
-# Copiar os arquivos de configuração do Maven
+# Copy the Maven configuration files
 COPY pom.xml .
 COPY src ./src
 
-# Construir a aplicação e copiar as dependências
-RUN mvn clean package -DskipTests
+# Build the application and copy dependencies
+RUN mvn clean package -DskipTests && \
+    mkdir -p dependency-jars && \
+    mvn dependency:copy-dependencies -DoutputDirectory=dependency-jars
 
-# Estágio 2: Criar a imagem final com Tomcat
+# Stage 2: Create the final image with Tomcat
 FROM tomcat:10.1-jdk11-openjdk-slim
 
-# Remover as aplicações padrão do Tomcat
+# Remove default Tomcat applications
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copiar o arquivo WAR do estágio de build para o diretório webapps do Tomcat
-COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
+# Copy the WAR file from the build stage to Tomcat's webapps directory
+COPY --from=build /app/target/*-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
 
-# Copiar as dependências do estágio de build para o diretório lib do Tomcat
-COPY --from=build /app/target/dependency-jars /usr/local/tomcat/lib/
+# Copy the dependencies from the build stage to Tomcat's lib directory
+COPY --from=build /app/dependency-jars /usr/local/tomcat/lib/
 
-# Expor a porta na qual a sua aplicação está rodando
+# Copy context.xml to Tomcat's conf directory
+COPY src/main/webapp/META-INF/Context.xml /usr/local/tomcat/conf/context.xml
+
+# Expose the port your app runs on
 EXPOSE 8080
 
-# Iniciar o Tomcat
+# Start Tomcat
 CMD ["catalina.sh", "run"]
